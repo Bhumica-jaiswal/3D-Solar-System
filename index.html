@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced 3D Solar System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="loading">Loading Solar System...</div>
+
+        <button id="themeToggle">🌙 Dark Mode</button>
+
+        <div id="info" style="display: none;">
+            <h3>Enhanced 3D Solar System</h3>
+            <p>🖱️ Mouse: Rotate camera</p>
+            <p>🔄 Scroll: Zoom in/out</p>
+            <p>🖱️ Click planets to focus</p>
+            <p id="planetInfo">Hover over planets for info</p>
+        </div>
+
+        <div id="controls" style="display: none;">
+            <div>
+                <label>Global Speed: </label>
+                <input type="range" id="speedSlider" min="0" max="5" step="0.1" value="1">
+                <span id="speedValue">1x</span>
+            </div>
+            <div>
+                <button id="pauseBtn">⏸️ Pause</button>
+                <button id="resetBtn">🔄 Reset View</button>
+            </div>
+        </div>
+
+        <div id="planetControls" style="display: none;">
+            <div class="panel-header">🪐 Planet Speed Controls</div>
+            <div id="planetControlsList"></div>
+            <button onclick="resetAllPlanetSpeeds()" style="width: 100%; margin-top: 10px;">Reset All Speeds</button>
+        </div>
+
+        <div id="cameraControls" style="display: none;">
+            <div class="panel-header" style="margin-bottom: 10px;">📹 Camera</div>
+            <button class="camera-button" onclick="focusOnSun()">🔆 Focus Sun</button>
+            <button class="camera-button" onclick="viewFromTop()">⬆️ Top View</button>
+            <button class="camera-button" onclick="viewFromSide()">↔️ Side View</button>
+            <button class="camera-button" onclick="followEarth()">🌍 Follow Earth</button>
+        </div>
+
+        <div class="planet-tooltip" id="planetTooltip">
+            <h4 id="tooltipName">Planet Name</h4>
+            <p id="tooltipDistance">Distance: 0 AU</p>
+            <p id="tooltipSpeed">Speed: 0x</p>
+            <p id="tooltipSize">Size: 0 km</p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
